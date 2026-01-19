@@ -1,0 +1,17 @@
+D:\Xenocore\Bora\Inventory.Infrastructure\bin\Debug\net10.0\Inventory.Infrastructure.deps.json
+D:\Xenocore\Bora\Inventory.Infrastructure\bin\Debug\net10.0\Inventory.Infrastructure.dll
+D:\Xenocore\Bora\Inventory.Infrastructure\bin\Debug\net10.0\Inventory.Infrastructure.pdb
+D:\Xenocore\Bora\Inventory.Infrastructure\bin\Debug\net10.0\Inventory.Domain.dll
+D:\Xenocore\Bora\Inventory.Infrastructure\bin\Debug\net10.0\Inventory.Domain.pdb
+D:\Xenocore\Bora\Inventory.Infrastructure\obj\Debug\net10.0\Inventory.Infrastructure.csproj.AssemblyReference.cache
+D:\Xenocore\Bora\Inventory.Infrastructure\obj\Debug\net10.0\Inventory.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Xenocore\Bora\Inventory.Infrastructure\obj\Debug\net10.0\Inventory.Infrastructure.AssemblyInfoInputs.cache
+D:\Xenocore\Bora\Inventory.Infrastructure\obj\Debug\net10.0\Inventory.Infrastructure.AssemblyInfo.cs
+D:\Xenocore\Bora\Inventory.Infrastructure\obj\Debug\net10.0\Inventory.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Xenocore\Bora\Inventory.Infrastructure\obj\Debug\net10.0\Inventor.89798F14.Up2Date
+D:\Xenocore\Bora\Inventory.Infrastructure\obj\Debug\net10.0\Inventory.Infrastructure.dll
+D:\Xenocore\Bora\Inventory.Infrastructure\obj\Debug\net10.0\refint\Inventory.Infrastructure.dll
+D:\Xenocore\Bora\Inventory.Infrastructure\obj\Debug\net10.0\Inventory.Infrastructure.pdb
+D:\Xenocore\Bora\Inventory.Infrastructure\obj\Debug\net10.0\ref\Inventory.Infrastructure.dll
+D:\Xenocore\Bora\Inventory.Infrastructure\bin\Debug\net10.0\Inventory.Application.dll
+D:\Xenocore\Bora\Inventory.Infrastructure\bin\Debug\net10.0\Inventory.Application.pdb

@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "dgSpecHash": "EdALtkuYoPA=",
+  "success": true,
+  "projectFilePath": "D:\\Xenocore\\Bora\\Inventory.Infrastructure\\Inventory.Infrastructure.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\leona\\.nuget\\packages\\automapper\\16.0.0\\automapper.16.0.0.nupkg.sha512",
+    "C:\\Users\\leona\\.nuget\\packages\\bogus\\35.6.5\\bogus.35.6.5.nupkg.sha512",
+    "C:\\Users\\leona\\.nuget\\packages\\microsoft.entityframeworkcore\\10.0.1\\microsoft.entityframeworkcore.10.0.1.nupkg.sha512",
+    "C:\\Users\\leona\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\10.0.1\\microsoft.entityframeworkcore.abstractions.10.0.1.nupkg.sha512",
+    "C:\\Users\\leona\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\10.0.1\\microsoft.entityframeworkcore.analyzers.10.0.1.nupkg.sha512",
+    "C:\\Users\\leona\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\10.0.1\\microsoft.entityframeworkcore.relational.10.0.1.nupkg.sha512",
+    "C:\\Users\\leona\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\10.0.1\\microsoft.extensions.caching.abstractions.10.0.1.nupkg.sha512",
+    "C:\\Users\\leona\\.nuget\\packages\\microsoft.extensions.caching.memory\\10.0.1\\microsoft.extensions.caching.memory.10.0.1.nupkg.sha512",
+    "C:\\Users\\leona\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\10.0.2\\microsoft.extensions.configuration.abstractions.10.0.2.nupkg.sha512",
+    "C:\\Users\\leona\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\10.0.1\\microsoft.extensions.dependencyinjection.10.0.1.nupkg.sha512",
+    "C:\\Users\\leona\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.2\\microsoft.extensions.dependencyinjection.abstractions.10.0.2.nupkg.sha512",
+    "C:\\Users\\leona\\.nuget\\packages\\microsoft.extensions.diagnostics.abstractions\\10.0.2\\microsoft.extensions.diagnostics.abstractions.10.0.2.nupkg.sha512",
+    "C:\\Users\\leona\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\10.0.2\\microsoft.extensions.fileproviders.abstractions.10.0.2.nupkg.sha512",
+    "C:\\Users\\leona\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\10.0.2\\microsoft.extensions.hosting.abstractions.10.0.2.nupkg.sha512",
+    "C:\\Users\\leona\\.nuget\\packages\\microsoft.extensions.logging\\10.0.1\\microsoft.extensions.logging.10.0.1.nupkg.sha512",
+    "C:\\Users\\leona\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\10.0.2\\microsoft.extensions.logging.abstractions.10.0.2.nupkg.sha512",
+    "C:\\Users\\leona\\.nuget\\packages\\microsoft.extensions.options\\10.0.2\\microsoft.extensions.options.10.0.2.nupkg.sha512",
+    "C:\\Users\\leona\\.nuget\\packages\\microsoft.extensions.primitives\\10.0.2\\microsoft.extensions.primitives.10.0.2.nupkg.sha512",
+    "C:\\Users\\leona\\.nuget\\packages\\microsoft.identitymodel.abstractions\\8.14.0\\microsoft.identitymodel.abstractions.8.14.0.nupkg.sha512",
+    "C:\\Users\\leona\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\8.14.0\\microsoft.identitymodel.jsonwebtokens.8.14.0.nupkg.sha512",
+    "C:\\Users\\leona\\.nuget\\packages\\microsoft.identitymodel.logging\\8.14.0\\microsoft.identitymodel.logging.8.14.0.nupkg.sha512",
+    "C:\\Users\\leona\\.nuget\\packages\\microsoft.identitymodel.tokens\\8.14.0\\microsoft.identitymodel.tokens.8.14.0.nupkg.sha512",
+    "C:\\Users\\leona\\.nuget\\packages\\npgsql\\10.0.0\\npgsql.10.0.0.nupkg.sha512",
+    "C:\\Users\\leona\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\10.0.0\\npgsql.entityframeworkcore.postgresql.10.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,15 @@
+D:\Xenocore\Bora\Inventory.Application\bin\Debug\net10.0\Inventory.Application.deps.json
+D:\Xenocore\Bora\Inventory.Application\bin\Debug\net10.0\Inventory.Application.dll
+D:\Xenocore\Bora\Inventory.Application\bin\Debug\net10.0\Inventory.Application.pdb
+D:\Xenocore\Bora\Inventory.Application\bin\Debug\net10.0\Inventory.Domain.dll
+D:\Xenocore\Bora\Inventory.Application\bin\Debug\net10.0\Inventory.Domain.pdb
+D:\Xenocore\Bora\Inventory.Application\obj\Debug\net10.0\Inventory.Application.csproj.AssemblyReference.cache
+D:\Xenocore\Bora\Inventory.Application\obj\Debug\net10.0\Inventory.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Xenocore\Bora\Inventory.Application\obj\Debug\net10.0\Inventory.Application.AssemblyInfoInputs.cache
+D:\Xenocore\Bora\Inventory.Application\obj\Debug\net10.0\Inventory.Application.AssemblyInfo.cs
+D:\Xenocore\Bora\Inventory.Application\obj\Debug\net10.0\Inventory.Application.csproj.CoreCompileInputs.cache
+D:\Xenocore\Bora\Inventory.Application\obj\Debug\net10.0\Inventor.1DAC6D85.Up2Date
+D:\Xenocore\Bora\Inventory.Application\obj\Debug\net10.0\Inventory.Application.dll
+D:\Xenocore\Bora\Inventory.Application\obj\Debug\net10.0\refint\Inventory.Application.dll
+D:\Xenocore\Bora\Inventory.Application\obj\Debug\net10.0\Inventory.Application.pdb
+D:\Xenocore\Bora\Inventory.Application\obj\Debug\net10.0\ref\Inventory.Application.dll
