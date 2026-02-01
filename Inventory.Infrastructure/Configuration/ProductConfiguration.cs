@@ -14,10 +14,11 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
         builder.ToTable("products");
         builder.HasKey(p => p.Id);
         builder.Property(p => p.Id);
-        builder.Property(p => p.Name);
-        builder.Property(p => p.Description);
+        builder.Property(p => p.Name).HasMaxLength(100);
+        builder.Property(p => p.Description).HasMaxLength(200);
         builder.Property(p => p.CreatedAt);
         builder.Property(p => p.UpdatedAt);
+        builder.Property(p => p.IsDiscontinued);
         
         // Owned Types
         builder.OwnsOne(p => p.PricePen, ownBuilder =>

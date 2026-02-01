@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wJ0ptiHAlLA=",
+  "dgSpecHash": "fb/OlGszrsA=",
   "success": true,
-  "projectFilePath": "D:\\Xenocore\\Bora\\Inventory.Domain\\Inventory.Domain.csproj",
+  "projectFilePath": "D:\\Xenocore\\Bora\\bora-inventory-service\\Inventory.Domain\\Inventory.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\leona\\.nuget\\packages\\microsoft.entityframeworkcore\\10.0.1\\microsoft.entityframeworkcore.10.0.1.nupkg.sha512",
     "C:\\Users\\leona\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\10.0.1\\microsoft.entityframeworkcore.abstractions.10.0.1.nupkg.sha512",

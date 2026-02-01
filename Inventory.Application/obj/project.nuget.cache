@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RF8An0O8kxY=",
+  "dgSpecHash": "8+LFiwvt3a8=",
   "success": true,
-  "projectFilePath": "D:\\Xenocore\\Bora\\Inventory.Application\\Inventory.Application.csproj",
+  "projectFilePath": "D:\\Xenocore\\Bora\\bora-inventory-service\\Inventory.Application\\Inventory.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\leona\\.nuget\\packages\\automapper\\16.0.0\\automapper.16.0.0.nupkg.sha512",
     "C:\\Users\\leona\\.nuget\\packages\\microsoft.entityframeworkcore\\10.0.1\\microsoft.entityframeworkcore.10.0.1.nupkg.sha512",

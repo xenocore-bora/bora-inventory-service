@@ -1,6 +1,8 @@
 ﻿using System.Net.Mime;
 using Inventory.API.Request;
+using Inventory.API.Request.Products;
 using Inventory.Application.Commands.UseCases.Products.CreateProduct;
+using Inventory.Application.Commands.UseCases.Products.UpdateProduct;
 using Inventory.Application.Queries.UseCases.Products.GetDetailedProductInfoById;
 using Inventory.Application.Queries.UseCases.Products.PageProduct;
 using Microsoft.AspNetCore.Mvc;
@@ -17,12 +19,16 @@ public class ProductsController : ControllerBase
     private readonly ProductPageableHandler _productPageableHandler;
     private readonly GetProductByIdHandler _getProductByIdHandler;
     private readonly CreateProductHandler _createProductHandler;
+    private readonly UpdateProductHandler _updateProductHandler;
 
-    public ProductsController(ProductPageableHandler productPageableHandler, GetProductByIdHandler getProductByIdHandler, CreateProductHandler createProductHandler)
+    public ProductsController(ProductPageableHandler productPageableHandler,
+        GetProductByIdHandler getProductByIdHandler, CreateProductHandler createProductHandler,
+        UpdateProductHandler updateProductHandler)
     {
         _productPageableHandler = productPageableHandler;
         _getProductByIdHandler = getProductByIdHandler;
         _createProductHandler = createProductHandler;
+        _updateProductHandler = updateProductHandler;
     }
 
     [HttpGet("page")]
@@ -31,6 +37,7 @@ public class ProductsController : ControllerBase
         return Ok(await _productPageableHandler.HandleAsync(new ProductPageableQuery
             { PageIndex = query.PageIndex, PageSize = query.PageSize, SearchTerm = query.SearchTerm }));
     }
+
     [HttpGet("{productId:long}")]
     public async Task<IActionResult> GetProduct([FromRoute] long productId)
     {
@@ -41,5 +48,19 @@ public class ProductsController : ControllerBase
     public async Task<IActionResult> CreateProduct([FromBody] CreateProductCommand command)
     {
         return Ok(await _createProductHandler.HandleAsync(command));
+    }
+
+    [HttpPut("{productId}")]
+    public async Task<IActionResult> UpdateProduct([FromRoute] long productId, [FromBody] UpdateProductRequest request)
+    {
+        var updateProductCommand = new UpdateProductCommand  {
+            Id = productId,
+            Name = request.Name,
+            Description = request.Description,
+            PricePen = request.PricePen,
+            PriceUsd = request.PriceUsd
+        };
+        
+        return Ok(await _updateProductHandler.HandleAsync(updateProductCommand));
     }
 }

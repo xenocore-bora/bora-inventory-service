@@ -1,4 +1,4 @@
-﻿namespace Inventory.Domain.Events;
+﻿namespace Inventory.Domain.Common.Events;
 
 public interface IDomainEvent
 {

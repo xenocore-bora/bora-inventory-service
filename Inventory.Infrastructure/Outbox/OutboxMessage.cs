@@ -1,5 +1,5 @@
 ﻿using System.Text.Json;
-using Inventory.Domain.Events;
+using Inventory.Domain.Common.Events;
 
 namespace Inventory.Infrastructure.Outbox;
 

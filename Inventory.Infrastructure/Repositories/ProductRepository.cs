@@ -34,4 +34,14 @@ public class ProductRepository : BaseRepository<Product>, IProductRepository
     {
         await Items.AddAsync(entity);
     }
+
+    public void Update(Product entity)
+    {
+        Items.Update(entity);
+    }
+
+    public void Remove(Product entity)
+    {
+        Items.Remove(entity);
+    }
 }

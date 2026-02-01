@@ -7,6 +7,6 @@ using Inventory.Domain.Interfaces.Repositories.Write;
 
 namespace Inventory.Domain.Interfaces.Repositories;
 
-public interface IProductRepository : IRepositoryReader<Product>, IRepositoryUpdater, IRepositoryWriter<Product>, IRepositoryRemover
+public interface IProductRepository : IRepositoryReader<Product>, IRepositoryUpdater<Product>, IRepositoryWriter<Product>, IRepositoryRemover<Product>
 {
 }

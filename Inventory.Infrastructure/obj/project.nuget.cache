@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EdALtkuYoPA=",
+  "dgSpecHash": "kEDRAm44Qmo=",
   "success": true,
-  "projectFilePath": "D:\\Xenocore\\Bora\\Inventory.Infrastructure\\Inventory.Infrastructure.csproj",
+  "projectFilePath": "D:\\Xenocore\\Bora\\bora-inventory-service\\Inventory.Infrastructure\\Inventory.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\leona\\.nuget\\packages\\automapper\\16.0.0\\automapper.16.0.0.nupkg.sha512",
     "C:\\Users\\leona\\.nuget\\packages\\bogus\\35.6.5\\bogus.35.6.5.nupkg.sha512",

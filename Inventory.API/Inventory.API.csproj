@@ -26,7 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Request\Products\" />
+    <Folder Include="Request\ProductItems\" />
+    <Folder Include="Response\" />
   </ItemGroup>
 
 </Project>

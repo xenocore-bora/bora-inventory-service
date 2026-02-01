@@ -3474,11 +3474,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Xenocore\\Bora\\Inventory.API\\Inventory.API.csproj",
+      "projectUniqueName": "D:\\Xenocore\\Bora\\bora-inventory-service\\Inventory.API\\Inventory.API.csproj",
       "projectName": "Inventory.API",
-      "projectPath": "D:\\Xenocore\\Bora\\Inventory.API\\Inventory.API.csproj",
+      "projectPath": "D:\\Xenocore\\Bora\\bora-inventory-service\\Inventory.API\\Inventory.API.csproj",
       "packagesPath": "C:\\Users\\leona\\.nuget\\packages\\",
-      "outputPath": "D:\\Xenocore\\Bora\\Inventory.API\\obj\\",
+      "outputPath": "D:\\Xenocore\\Bora\\bora-inventory-service\\Inventory.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3499,11 +3499,11 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "D:\\Xenocore\\Bora\\Inventory.Application\\Inventory.Application.csproj": {
-              "projectPath": "D:\\Xenocore\\Bora\\Inventory.Application\\Inventory.Application.csproj"
+            "D:\\Xenocore\\Bora\\bora-inventory-service\\Inventory.Application\\Inventory.Application.csproj": {
+              "projectPath": "D:\\Xenocore\\Bora\\bora-inventory-service\\Inventory.Application\\Inventory.Application.csproj"
             },
-            "D:\\Xenocore\\Bora\\Inventory.Infrastructure\\Inventory.Infrastructure.csproj": {
-              "projectPath": "D:\\Xenocore\\Bora\\Inventory.Infrastructure\\Inventory.Infrastructure.csproj"
+            "D:\\Xenocore\\Bora\\bora-inventory-service\\Inventory.Infrastructure\\Inventory.Infrastructure.csproj": {
+              "projectPath": "D:\\Xenocore\\Bora\\bora-inventory-service\\Inventory.Infrastructure\\Inventory.Infrastructure.csproj"
             }
           }
         }

@@ -15,7 +15,7 @@ public class UnitOfWork : IUnitOfWork
 
     private async Task DispatchEventsAsync(CancellationToken cancellationToken = default)
     {
-        // Get aggregates from the change tracker
+        // Get aggregates from the change tracker. Only selects aggregates with changes.
         var aggregates = _context.ChangeTracker
             .Entries<AggregateRoot>()
             .Select(e => e.Entity)

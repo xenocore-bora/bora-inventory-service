@@ -11,6 +11,7 @@ public class Product : AggregateRoot
     public string Description { get; set; }
     public Price? PricePen { get; set; }
     public Price? PriceUsd { get; set; }
+    public bool IsDiscontinued { get; set; }
 
     public Product()
     {
@@ -53,5 +54,40 @@ public class Product : AggregateRoot
         CreatedAt = DateTime.UtcNow;
         UpdatedAt = DateTime.UtcNow;
         AddDomainEvent(new ProductCreatedEvent(Id));
+    }
+
+    public void Update(string name, string description, decimal pricePen, decimal priceUsd)
+    {
+        if (Name != name)
+        {
+            AddDomainEvent(new ProductNameUpdateEvent(Id, Name, name));
+            Name = name;
+        }
+
+        if (Description != description)
+        {
+            AddDomainEvent(new ProductDescriptionUpdateEvent(Id, Description, description));
+            Description = description;
+        }
+
+        if (PricePen != null)
+        {
+            if (PricePen.Amount != pricePen)
+            {
+                AddDomainEvent(new ProductPricePenUpdateEvent(Id, PricePen.Amount, pricePen));
+                PricePen = Price.Create(pricePen, Currency.PEN);
+            }
+        }
+        
+        if (PriceUsd != null)
+        {
+            if (PriceUsd.Amount != priceUsd)
+            {
+                AddDomainEvent(new ProductPriceUsdUpdateEvent(Id, PriceUsd.Amount, priceUsd));
+                PriceUsd = Price.Create(pricePen, Currency.USD);
+            }
+        }
+        
+        UpdatedAt = DateTime.UtcNow;
     }
 }

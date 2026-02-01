@@ -1,8 +1,10 @@
 using Inventory.Application.Commands.UseCases.Products.CreateProduct;
+using Inventory.Application.Commands.UseCases.Products.UpdateProduct;
 using Inventory.Application.Common.UnitOfWork;
 using Inventory.Application.Configuration.Mapper;
 using Inventory.Application.Mapper;
 using Inventory.Application.Mapper.Profiles;
+using Inventory.Application.Queries.UseCases.ProductItems.PageProductItemByProductId;
 using Inventory.Application.Queries.UseCases.Products.GetDetailedProductInfoById;
 using Inventory.Application.Queries.UseCases.Products.PageProduct;
 using Inventory.Domain.Interfaces.Repositories;
@@ -52,11 +54,16 @@ builder.Services.AddAutoMapper(cfg =>
 
 // Repository
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IProductItemRepository, ProductItemRepository>();
 
 // Handlers
+// Product
 builder.Services.AddScoped<ProductPageableHandler>();
 builder.Services.AddScoped<GetProductByIdHandler>();
 builder.Services.AddScoped<CreateProductHandler>();
+builder.Services.AddScoped<UpdateProductHandler>();
+// Product Item
+builder.Services.AddScoped<PageProductItemByProductIdHandler>();
 
 // Workers
 builder.Services.AddHostedService<OutboxWorker>();

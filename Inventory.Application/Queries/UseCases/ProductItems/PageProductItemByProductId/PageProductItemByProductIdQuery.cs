@@ -2,8 +2,8 @@
 
 namespace Inventory.Application.Queries.UseCases.ProductItems.PageProductItemByProductId;
 
-public class ProductItemPageByProductIdQuery : PageRequest
+public class PageProductItemByProductIdQuery : PageRequest
 {
-    public long ProductId { get; }
-    public long SerialNumber { get; }
+    public long ProductId { get; set; }
+    public long SerialNumber { get; set; }
 }

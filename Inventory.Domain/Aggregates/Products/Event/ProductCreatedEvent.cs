@@ -1,4 +1,4 @@
-﻿using Inventory.Domain.Events;
+﻿using Inventory.Domain.Common.Events;
 
 namespace Inventory.Domain.Aggregates.Products.Event;
 
