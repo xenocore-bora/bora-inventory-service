@@ -1,24 +1,20 @@
 ﻿using Inventory.Domain.Aggregates.ProductItems;
 using Inventory.Domain.Aggregates.Products;
 using Inventory.Domain.Interfaces.Repositories;
+using Inventory.Domain.Interfaces.Repositories.Params.ProductItems;
 using Inventory.Infrastructure.Persistence;
 using Inventory.Infrastructure.Repositories.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace Inventory.Infrastructure.Repositories;
 
-public class ProductItemRepository : BaseRepository<ProductItem>, IProductItemRepository
+public class ProductItemRepository : BaseRepository<ProductItem,long>, IProductItemRepository
 {
     public ProductItemRepository(PgsqlDbContext context) : base(context)
     {
     }
 
-    public Task AddAsync(Product entity)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<Product?> GetByIdAsync(long id)
+    public Task<ProductItem?> GetByIdAsync(long id)
     {
         throw new NotImplementedException();
     }
@@ -28,7 +24,7 @@ public class ProductItemRepository : BaseRepository<ProductItem>, IProductItemRe
         throw new NotImplementedException();
     }
 
-    public Task<int> GetProductsTotalCountAsync()
+    public Task<int> GetTotalCountAsync()
     {
         throw new NotImplementedException();
     }
@@ -41,5 +37,15 @@ public class ProductItemRepository : BaseRepository<ProductItem>, IProductItemRe
         var pagedItems = await query.Skip((pageIndex - 1) * pageSize)
             .Take(pageSize).ToListAsync();
         return (pagedItems, totalCount);
+    }
+
+    public async Task<ProductItem?> GetProductBySerialNumber(ProductItemParams @params)
+    {
+        return await Items.Where(pi => pi.SerialNumber == @params.SerialNumber).FirstOrDefaultAsync();
+    }
+
+    public async Task<bool> ExistsProductBySerialNumber(ProductItemParams @params)
+    {
+        return await Items.AnyAsync(pi => pi.SerialNumber == @params.SerialNumber);
     }
 }

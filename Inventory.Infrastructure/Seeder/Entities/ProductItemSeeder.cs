@@ -5,10 +5,13 @@ namespace Inventory.Infrastructure.Seeder.Entities;
 
 public class ProductItemSeeder : EntitySeeder<ProductItem>
 {
-    public override int Order => 2;
+    public override int Order => 3;
+    
+    protected override string TableName => "ProductItems";
+
     protected override void ConfigureFaker()
     {
-        Faker.CustomInstantiator(f => new ProductItem(f.Random.Guid(), f.Random.Long(1, 100), f.Random.AlphaNumeric(10)));
+        Faker.CustomInstantiator(f => new ProductItem(f.Random.Long(1, 100), f.Random.AlphaNumeric(10)));
     }
 
     protected override IList<ProductItem> GenerateData()

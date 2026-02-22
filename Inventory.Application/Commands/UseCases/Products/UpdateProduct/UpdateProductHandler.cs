@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Inventory.Application.Common.UnitOfWork;
-using Inventory.Application.Results.Show.Detailed;
+using Inventory.Application.Results.Product.Show.Detailed;
 using Inventory.Domain.Interfaces.Repositories;
 using Microsoft.Extensions.Logging;
 

@@ -1,4 +1,6 @@
 ﻿using Inventory.Domain.Aggregates;
+using Inventory.Domain.Aggregates.Brands;
+using Inventory.Domain.Aggregates.ProductItems;
 using Inventory.Domain.Aggregates.Products;
 using Inventory.Infrastructure.Extensions;
 using Inventory.Infrastructure.Outbox;
@@ -13,6 +15,8 @@ public class PgsqlDbContext : DbContext
     
     // Domain Entities
     public DbSet<Product> Products { get; set; }
+    public DbSet<ProductItem> ProductItems { get; set; }
+    public DbSet<Brand> Brands { get; set; }
     
     
     public PgsqlDbContext(DbContextOptions<PgsqlDbContext> options) : base(options)

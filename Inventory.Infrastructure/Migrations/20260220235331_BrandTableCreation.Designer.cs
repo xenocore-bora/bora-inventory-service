@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Inventory.Infrastructure.Migrations
 {
     [DbContext(typeof(PgsqlDbContext))]
-    [Migration("20260118091350_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20260220235331_BrandTableCreation")]
+    partial class BrandTableCreation
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,33 @@ namespace Inventory.Infrastructure.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("Inventory.Domain.Aggregates.Brands.Brand", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)")
+                        .HasColumnName("name");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("updated_at");
+
+                    b.HasKey("Id")
+                        .HasName("p_k_brands");
+
+                    b.ToTable("brands", (string)null);
+                });
 
             modelBuilder.Entity("Inventory.Domain.Aggregates.ProductItems.ProductItem", b =>
                 {
@@ -67,18 +94,28 @@ namespace Inventory.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
+                    b.Property<Guid>("BrandId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("brand_id");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("created_at");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("text")
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)")
                         .HasColumnName("description");
+
+                    b.Property<bool>("IsDiscontinued")
+                        .HasColumnType("boolean")
+                        .HasColumnName("is_discontinued");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text")
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)")
                         .HasColumnName("name");
 
                     b.Property<DateTime>("UpdatedAt")
@@ -87,6 +124,9 @@ namespace Inventory.Infrastructure.Migrations
 
                     b.HasKey("Id")
                         .HasName("p_k_products");
+
+                    b.HasIndex("BrandId")
+                        .HasDatabaseName("i_x_products_brand_id");
 
                     b.ToTable("products", (string)null);
                 });
@@ -134,6 +174,13 @@ namespace Inventory.Infrastructure.Migrations
 
             modelBuilder.Entity("Inventory.Domain.Aggregates.Products.Product", b =>
                 {
+                    b.HasOne("Inventory.Domain.Aggregates.Brands.Brand", "Brand")
+                        .WithMany("Products")
+                        .HasForeignKey("BrandId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("f_k_products_brands_brand_id");
+
                     b.OwnsOne("Inventory.Domain.ValueObject.Price", "PricePen", b1 =>
                         {
                             b1.Property<long>("ProductId")
@@ -172,9 +219,16 @@ namespace Inventory.Infrastructure.Migrations
                                 .HasForeignKey("ProductId");
                         });
 
+                    b.Navigation("Brand");
+
                     b.Navigation("PricePen");
 
                     b.Navigation("PriceUsd");
+                });
+
+            modelBuilder.Entity("Inventory.Domain.Aggregates.Brands.Brand", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

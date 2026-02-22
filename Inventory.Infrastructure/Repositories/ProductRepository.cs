@@ -1,36 +1,43 @@
 ﻿using Inventory.Domain.Aggregates;
 using Inventory.Domain.Aggregates.Products;
 using Inventory.Domain.Interfaces.Repositories;
+using Inventory.Domain.Interfaces.Repositories.Params.Products;
 using Inventory.Infrastructure.Persistence;
 using Inventory.Infrastructure.Repositories.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace Inventory.Infrastructure.Repositories;
 
-public class ProductRepository : BaseRepository<Product>, IProductRepository
+public class ProductRepository : BaseRepository<Product, long>, IProductRepository
 {
     public ProductRepository(PgsqlDbContext context) : base(context)
     {
     }
 
-    public async Task<Product?> GetByIdAsync(long id)
+    public override async Task<Product?> GetByIdAsync(long id)
     {
-        return await Items.Where(p => p.Id == id).FirstOrDefaultAsync(); 
+        return await Items
+            .Where(p => p.Id == id)
+            .Include(p => p.Brand)
+            .FirstOrDefaultAsync();
     }
 
-    public async Task<(IEnumerable<Product>, int)> PageAsync(int pageIndex = 1, int pageSize = 10, string searchTerm = "")
+    public async Task<(IEnumerable<Product>, int)> PageAsync(PageProductParams @params)
     {
-        var totalCount = await Items.CountAsync(); 
-        var products = await Items.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToListAsync();
+        var totalCount = await Items.CountAsync();
+        var products = await Items
+            .Where(p => p.Name.Contains(@params.SearchTerm) || p.Description.Contains(@params.SearchTerm))
+            .Skip((@params.PageIndex - 1) * @params.PageSize).Take(@params.PageSize).ToListAsync();
         return (products, totalCount);
     }
 
-    public async Task<int> GetProductsTotalCountAsync()
+
+    public async Task<int> GetTotalCountAsync()
     {
         return await Items.CountAsync();
     }
 
-    public async Task AddAsync(Product entity)
+    public override async Task AddAsync(Product entity)
     {
         await Items.AddAsync(entity);
     }

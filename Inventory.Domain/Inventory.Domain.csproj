@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Aggregates\ProductItems\Event\" />
     <Folder Include="Common\Abstractions\" />
     <Folder Include="Common\Auditable\" />
     <Folder Include="Enums\" />

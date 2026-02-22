@@ -1,4 +1,5 @@
-﻿using Inventory.Domain.Aggregates.Products.Event;
+﻿using Inventory.Domain.Aggregates.Brands;
+using Inventory.Domain.Aggregates.Products.Event;
 using Inventory.Domain.Common.Aggregate;
 using Inventory.Domain.ValueObject;
 
@@ -6,17 +7,23 @@ namespace Inventory.Domain.Aggregates.Products;
 
 public class Product : AggregateRoot
 {
-    public long Id { get; set; }
+    public long Id { get; }
     public string Name { get; set; }
     public string Description { get; set; }
     public Price? PricePen { get; set; }
     public Price? PriceUsd { get; set; }
     public bool IsDiscontinued { get; set; }
+    
+    // Foreign Key
+    public Guid BrandId { get; set; }
+    public Brand? Brand { get; set; }
 
     public Product()
     {
         Name = string.Empty;
         Description = string.Empty;
+        Console.WriteLine($"1: Creating product {Id}");
+        // AddDomainEvent(new ProductCreatedEvent(Id));
     }
 
     public Product(long id, string name, string description, decimal pricePen, decimal priceUsd, DateTime createdAt,
@@ -29,7 +36,7 @@ public class Product : AggregateRoot
         PriceUsd = Price.Create(priceUsd, Currency.USD);
         CreatedAt = createdAt;
         UpdatedAt = updatedAt;
-        AddDomainEvent(new ProductCreatedEvent(Id));
+        Console.WriteLine($"2: Creating product {Id}");
     }
 
     public Product(string name, string description, decimal pricePen, decimal priceUsd, DateTime createdAt,
@@ -41,23 +48,24 @@ public class Product : AggregateRoot
         PriceUsd = Price.Create(priceUsd, Currency.USD);
         CreatedAt = createdAt;
         UpdatedAt = updatedAt;
-        AddDomainEvent(new ProductCreatedEvent(Id));
+        Console.WriteLine($"3: Creating product {Id}");
     }
 
-    public Product(long id, string name, string description, Price pricePen, Price priceUsd)
+    public Product(string name, string description, Price pricePen, Price priceUsd, Guid brandId)
     {
-        Id = id;
         Name = name;
         Description = description;
         PricePen = pricePen;
         PriceUsd = priceUsd;
         CreatedAt = DateTime.UtcNow;
         UpdatedAt = DateTime.UtcNow;
-        AddDomainEvent(new ProductCreatedEvent(Id));
+        BrandId = brandId;
+        Console.WriteLine($"4: Creating product {Id}");
     }
 
     public void Update(string name, string description, decimal pricePen, decimal priceUsd)
     {
+        Console.WriteLine($"Updating product {Id}");
         if (Name != name)
         {
             AddDomainEvent(new ProductNameUpdateEvent(Id, Name, name));
@@ -89,5 +97,15 @@ public class Product : AggregateRoot
         }
         
         UpdatedAt = DateTime.UtcNow;
+    }
+    
+    public void Discontinue()
+    {
+        IsDiscontinued = true;
+    }
+
+    public void MarkAsCreated()
+    {
+        AddDomainEvent(new ProductCreatedEvent(Id));
     }
 }

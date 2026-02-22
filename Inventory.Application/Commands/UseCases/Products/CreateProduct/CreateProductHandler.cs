@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Inventory.Application.Common.UnitOfWork;
-using Inventory.Application.Results.Show.Detailed;
+using Inventory.Application.Results.Product.Show.Detailed;
 using Inventory.Domain.Aggregates.Products;
 using Inventory.Domain.Interfaces.Repositories;
 
@@ -25,8 +25,11 @@ public class CreateProductHandler : ICommandHandler<CreateProductCommand, Detail
         try
         {
             var newProduct = new Product(command.Name, command.Description, command.PricePen, command.PriceUsd, DateTime.UtcNow, DateTime.UtcNow);
+            Console.WriteLine(newProduct.Id);
             await _productRepository.AddAsync(newProduct);
             await _unitOfWork.CommitAsync(cancellationToken);
+            newProduct.MarkAsCreated(); // Mark as created after committing to DB
+            Console.WriteLine(newProduct.Id);
             return _mapper.Map<DetailedProductResult>(newProduct);
         }
         catch (Exception e)

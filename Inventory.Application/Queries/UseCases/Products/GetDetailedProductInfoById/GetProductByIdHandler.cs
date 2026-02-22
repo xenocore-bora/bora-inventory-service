@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Inventory.Application.Results.Show.Detailed;
+using Inventory.Application.Results.Product.Show.Detailed;
 using Inventory.Domain.Interfaces.Repositories;
 
 namespace Inventory.Application.Queries.UseCases.Products.GetDetailedProductInfoById;

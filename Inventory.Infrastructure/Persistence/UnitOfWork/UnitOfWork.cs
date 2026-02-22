@@ -41,8 +41,10 @@ public class UnitOfWork : IUnitOfWork
         }
         catch (Exception e)
         {
-            await tx.DisposeAsync();
+            Console.WriteLine(e.Message);
             await _context.Database.RollbackTransactionAsync(cancellationToken);
+            await tx.DisposeAsync();
+            throw;
         }
     }
 }

@@ -2,6 +2,7 @@
 using Inventory.API.Request;
 using Inventory.API.Request.Products;
 using Inventory.Application.Commands.UseCases.Products.CreateProduct;
+using Inventory.Application.Commands.UseCases.Products.DiscontinueProduct;
 using Inventory.Application.Commands.UseCases.Products.UpdateProduct;
 using Inventory.Application.Queries.UseCases.Products.GetDetailedProductInfoById;
 using Inventory.Application.Queries.UseCases.Products.PageProduct;
@@ -20,15 +21,17 @@ public class ProductsController : ControllerBase
     private readonly GetProductByIdHandler _getProductByIdHandler;
     private readonly CreateProductHandler _createProductHandler;
     private readonly UpdateProductHandler _updateProductHandler;
+    private readonly DiscontinueProductHandler _discontinueProductHandler;
 
     public ProductsController(ProductPageableHandler productPageableHandler,
         GetProductByIdHandler getProductByIdHandler, CreateProductHandler createProductHandler,
-        UpdateProductHandler updateProductHandler)
+        UpdateProductHandler updateProductHandler, DiscontinueProductHandler discontinueProductHandler)
     {
         _productPageableHandler = productPageableHandler;
         _getProductByIdHandler = getProductByIdHandler;
         _createProductHandler = createProductHandler;
         _updateProductHandler = updateProductHandler;
+        _discontinueProductHandler = discontinueProductHandler;
     }
 
     [HttpGet("page")]
@@ -62,5 +65,12 @@ public class ProductsController : ControllerBase
         };
         
         return Ok(await _updateProductHandler.HandleAsync(updateProductCommand));
+    }
+
+    [HttpPost("{productId}/discontinue")]
+    public async Task<IActionResult> Discontinue([FromRoute] long productId)
+    {
+        var discontinueCommand = new DiscontinueProductCommand { ProductId = productId };
+        return Ok(await _discontinueProductHandler.HandleAsync(discontinueCommand));
     }
 }

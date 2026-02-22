@@ -2,12 +2,14 @@
 using Inventory.Domain.Aggregates.Products;
 using Inventory.Domain.ValueObject;
 using Inventory.Infrastructure.Seeder.Abstraction.Entity;
+using Inventory.Infrastructure.Seeder.Constants.Brands;
 
 namespace Inventory.Infrastructure.Seeder.Entities;
 
 public class ProductSeeder : EntitySeeder<Product>
 {
-    public override int Order => 1;
+    public override int Order => 2;
+    protected override string TableName => "Products";
 
     protected override void ConfigureFaker()
     {
@@ -15,8 +17,9 @@ public class ProductSeeder : EntitySeeder<Product>
         {
             var pricePen = Price.Create(faker.Random.Decimal(0, 1000000), Currency.PEN);
             var priceUsd = Price.Create(faker.Random.Decimal(0, 1000000), Currency.USD);
-            return new Product(faker.IndexFaker + 1, faker.Commerce.ProductName(), faker.Commerce.ProductDescription(),
-                pricePen, priceUsd);
+            var brandId = BrandConstants.BrandIds[Random.Shared.Next(0, 20)];
+            return new Product(faker.Commerce.ProductName(), faker.Commerce.ProductDescription(),
+                pricePen, priceUsd, brandId);
         });
     }
 
